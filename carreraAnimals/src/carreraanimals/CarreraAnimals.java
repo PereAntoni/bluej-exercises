@@ -17,6 +17,7 @@ public class CarreraAnimals {
     public static void main(String[] args) {
         // TODO code application logic here
         //he fet canvis a baix
+        //desde dalt també ;)
     }
     
 }
