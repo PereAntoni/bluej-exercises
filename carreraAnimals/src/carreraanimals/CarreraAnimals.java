@@ -5,6 +5,7 @@
  */
 package carreraanimals;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -42,20 +43,38 @@ public class CarreraAnimals {
         Animal b;
         int distancia=100;
         Escenari escena;
+        
+        ArrayList<Animal> participants = new ArrayList<>();
+        
+        
+        
+        
         a= new Animal("cranc",">o");
         b= new Animal("peix",">8");
-        escena = new Escenari(a,b,distancia);
+        Animal c= new Animal("cocodril","^=");
+        Animal d= new Animal("mandril","oo");
+        
+        participants.add(b);
+        participants.add(a);
+        participants.add(c);
+        participants.add(d);
+        
+        escena = new Escenari(participants,distancia);
         
         Random dau = new Random();
-        while (a.getPosicio()<distancia){
+        while (participants.get(0).getPosicio()<distancia){
             try{
                 Thread.sleep(1*1000);
             }
             catch (Exception e){
                 System.out.println(e);
             }
-            a.camina(dau.nextInt(6));
-            b.camina(dau.nextInt(6));
+            participants.get(0).camina(dau.nextInt(6));
+            participants.get(1).camina(dau.nextInt(6));
+            participants.get(2).camina(dau.nextInt(6));
+            participants.get(3).camina(dau.nextInt(6));
+            
+            //b.camina(dau.nextInt(6));
             escena.pinta();
             
             //System.out.println(a.getPosicio());

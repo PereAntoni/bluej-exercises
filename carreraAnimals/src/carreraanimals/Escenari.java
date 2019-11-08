@@ -5,7 +5,10 @@
  */
 package carreraanimals;
 
+import static carreraanimals.CarreraAnimals.cl;
 import static carreraanimals.CarreraAnimals.pintaFinal;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -13,31 +16,38 @@ import static carreraanimals.CarreraAnimals.pintaFinal;
  */
 public class Escenari {
 
-    Animal x;
-    Animal y;
     int d;
+    ArrayList<Animal> participants = new ArrayList<>();
 
-    public Escenari(Animal x, Animal y, int d) {
-        this.x = x;
-        this.y = y;
-        this.d = d;
+    public Escenari(ArrayList<Animal> l, int d) {
+        this.participants = l;
+        this.d=d;
     }
     
     public void pinta(){
         System.out.println("CARRERA D'ANIMALS---CARRERA D'ANIMALS---CARRERA D'ANIMALS---CARRERA D'ANIMALS---");
         pintaFinal(-2,d);
         
+
+        //participants.forEach(pinta());
+        
+        Iterator<Animal> an = participants.iterator();
+        while (an.hasNext()){
+            Animal actual = an.next();
+            actual.pinta();
+            pintaFinal(actual.getPosicio(),d);
+        }
+        pintaFinal(-2,d);
+        cl(5);
+       /* participants.get(0).pinta();
+        
         pintaFinal(-2,d);
         pintaFinal(-2,d);
-        y.pinta();
-        pintaFinal(y.getPosicio(),d);
+        participants.get(1).pinta();
+        pintaFinal(participants.get(1).getPosicio(),d);
         pintaFinal(-2,d);
         pintaFinal(-2,d);
-        x.pinta();
-        pintaFinal(x.getPosicio(),d);
-        pintaFinal(-2,d);
-        pintaFinal(-2,d);
-        pintaFinal(-2,d);
+        pintaFinal(-2,d);*/
     }
     
 }
